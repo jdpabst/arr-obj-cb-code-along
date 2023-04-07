@@ -3,7 +3,7 @@
 // Modify the function below to return the first item of the array that is being passed in
 
 function first(arr) {
-  //Code here
+  return arr[0];
 }
 
 //////////////////PROBLEM 2////////////////////
@@ -11,7 +11,7 @@ function first(arr) {
 // Modify the function below to return the length of the array that is being passed in
 
 function length(arr) {
-  //Code here
+  return arr.length;
 }
 
 //////////////////PROBLEM 3////////////////////
@@ -19,7 +19,7 @@ function length(arr) {
 // Modify the function below to return the last item of the array that is being passed in
 
 function last(arr) {
-  //Code here
+  return arr[arr.length -1];
 }
 
 //////////////////PROBLEM 4////////////////////
@@ -27,7 +27,7 @@ function last(arr) {
 // Modify the function below to add the passed in number to the end of the passed in array
 
 function addItem(array, number) {
-  //Code here
+  array.push(number);
   return array
 }
 
@@ -36,7 +36,7 @@ function addItem(array, number) {
 // Modify the function below to remove the last item of the array being passed in
 
 function removeLast(array) {
-  //Code here
+  array.pop();
   return array
 }
 
@@ -45,7 +45,7 @@ function removeLast(array) {
 // Modify the function below to remove the first item of the array being passed in
 
 function removeFirst(array) {
-  //Code here
+  array.shift();
   return array
 }
 
@@ -56,7 +56,7 @@ function removeFirst(array) {
 function maker() {
   var numbers = []
   for (var i = 0; i <= 25; i++) {
-    //Code here
+    numbers.push(i);
   }
 
   return numbers
@@ -69,7 +69,9 @@ function maker() {
 function count31() {
   var numbers = []
 
-  //Code here
+  for(var i = 0; i <= 31; i++){
+    numbers.push(i);
+  }
 
   return numbers
 }
@@ -86,7 +88,7 @@ function backWards(arr) {
   var newArray = []
 
   for (var i = arr.length - 1; i >= 0; i--) {
-    // code here
+    newArray.push(arr[i]);
   }
 
   return newArray
@@ -100,7 +102,11 @@ function backWards(arr) {
 // findInArray([0,1,2,3], 4); -> false
 
 function findInArray(arr, value) {
-  // code here
+  if(arr.includes(value)){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 //////////////////PROBLEM 11////////////////////
@@ -114,7 +120,8 @@ function addTen(arr) {
   var newArr = []
 
   for (var i = 0; i < arr.length; i++) {
-    // code here
+    let num = arr[i] += 10;
+    newArr.push(num);
   }
 
   return newArr
@@ -131,7 +138,7 @@ function personName() {
     age: 29,
     location: 'Orem, UT',
   }
-  return // Code here
+  return person.firstName;
 }
 
 //////////////////PROBLEM 13////////////////////
@@ -145,7 +152,7 @@ function personLocation() {
     age: 29,
     location: 'Orem, UT',
   }
-  return // Code Here
+  return person['location'];
 }
 
 //////////////////PROBLEM 14////////////////////
@@ -154,7 +161,7 @@ function personLocation() {
 
 const backpack = {}
 
-// Code Here
+backpack.frontPocket = "compass";
 
 //////////////////PROBLEM 15////////////////////
 
@@ -162,7 +169,7 @@ const backpack = {}
 
 const box = {}
 
-// Code Here
+box["material"] = 'cardboard';
 
 //////////////////PROBLEM 16////////////////////
 
