@@ -179,7 +179,7 @@ const person = {}
 
 person['firstName'] = 'sally'
 
-//code here
+var userFirstName = person.firstName;
 
 //////////////////PROBLEM 17////////////////////
 
@@ -193,7 +193,10 @@ person['firstName'] = 'sally'
 // };
 
 function updateUser(user) {
-  // Code Here
+  user.name = "Ryan";
+  user.pwHash = "superSafe";
+  user.username = 'ryan2020';
+  return user;
 }
 
 //////////////////PROBLEM 18////////////////////
@@ -201,20 +204,30 @@ function updateUser(user) {
 //Inside the function updateEmail, update the email property of the passed in object to be the value of the parameter str. Return the updated object.
 
 function updateEmail(obj, str) {
-  // Code here
+  obj.email = str;
+  return obj;
 }
 
 //////////////////PROBLEM 19////////////////////
 
 // Write a function called isOldEnough that takes a person obj and checks the age property to see if the person is old enough to enter the club.  If they are 21 or older return true else return false.
 
-// Code here
+function isOldEnough (obj){
+  if(obj.age >= 21){
+    return true;
+  } else {
+    return false;
+  }
+}
 
 //////////////////PROBLEM 20////////////////////
 
 //Create a function called addRole that takes in a user object as the first parameter and a string as the second parameter.  The string will represent the user's new role in the system (i.e. admin, creator, editor, visitor). Create a new property on the user object called "role" and assign the passed in string to it, then return the updated object.
 
-// Code here
+function addRole(obj, str){
+  obj.role = str;
+  return obj;
+}
 
 ///////////////////////////////////////////////////////
 
@@ -241,7 +254,6 @@ function checkAge(age) {
   // What will the value of oldEnough be?
   console.log(oldEnough)
 }
-
 //////////////////PROBLEM 21////////////////////
 
 // Rewrite the existing if statement as a ternary.
@@ -252,6 +264,8 @@ function schoolStatus(status) {
   // } else {
   //   return 'No more video games!'
   // }
+  let answer = status == 'Good' ? 'Wow, great job kiddo!' : 'No more video games!';
+  return answer;
 }
 
 //////////////////PROBLEM 22////////////////////
@@ -263,7 +277,8 @@ function schoolStatus(status) {
 // If age is greater than 18, return: Somebody is really getting up there, huh?
 
 function messageBasedOnAge(age) {
-  //code here
+  let answer = age < 18 ? 'Not quite old enough, sorry.' : age == 18 ? 'Congrats on being an adult!' : 'Somebody is really getting up there, huh?'
+  return answer;
 }
 
 //////////////////PROBLEM 23////////////////////
@@ -271,7 +286,9 @@ function messageBasedOnAge(age) {
 // Create a function called outerFn, that takes in a callback as a parameter, and then returns that callback invoked.
 // To see it working, invoke outerFn at the bottom, passing in the InnerFn as the callback. You should now see "The innerFn is a callback!" in the console.
 
-// Create function here
+function outerFn (cb){
+  return cb();
+}
 
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function innerFn() {
@@ -280,6 +297,7 @@ function innerFn() {
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
 // Invoke function here
+console.log(outerFn(innerFn));
 
 //////////////////PROBLEM 24////////////////////
 
@@ -287,7 +305,9 @@ function innerFn() {
 // The fullName function should return the callback, passing in firstName and lastName as parameters.
 // To test, invoke fullName with your first name, last name and the welcomeMessage function as arguments.
 
-// Create function fullName here
+function fullName(firstName, lastName, cb){
+  return cb(firstName, lastName)
+}
 
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function welcomeMessage(first, last) {
@@ -295,7 +315,7 @@ function welcomeMessage(first, last) {
 }
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
-// Invoke fullName below
+console.log(fullName('Jessica', 'Pabst', welcomeMessage))
 
 //////////////////PROBLEM 25////////////////////
 
@@ -319,7 +339,10 @@ function drinkAlcohol() {
 
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
-// Create function canDrink here
+function canDrink(age, cb1, cb2){
+  let answer = age < 21 ? cb1() : cb2();
+  return answer;
+}
 
 //////////////////PROBLEM 26////////////////////
 
@@ -328,4 +351,16 @@ function drinkAlcohol() {
 // Write a function called math that takes in two numbers, and a callback 'operator' as parameters.
 // This function should return a operator invoked with the appropriate arguments.
 
-//Code here
+function add(num1, num2){
+  return num1 + num2;
+}
+
+function multiply(num1, num2){
+  return num1 * num2;
+}
+
+function math(num1, num2, cb){
+  return cb(num1, num2);
+}
+
+console.log(math(2,3,multiply))
